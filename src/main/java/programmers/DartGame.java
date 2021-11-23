@@ -2,7 +2,7 @@ package programmers;
 
 import java.util.Arrays;
 
-public class dartGame {
+public class DartGame {
 	public static void main(String[] args) {
 		String dartRes = "1S*2T*3S";
 		int test = solution(dartRes);
