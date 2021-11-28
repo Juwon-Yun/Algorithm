@@ -10,14 +10,14 @@ public class DartGame {
 	}
 		public static int solution(String dartResult) {
 			int answer = 0;
-			int score = 0, total = 0, idx = 0, chance = 0;
+			int total = 0, idx = 0, chance = 0;
 			int[] scoreArr = new int[3];
+			int score = 0;
 
 			//  S => ^1, D => ^2, T => ^3
 			// star => * 2, acha => * -1
 			for (int i = 0; i < dartResult.length(); i++) {
 				char chr = dartResult.charAt(i);
-
 				// chr가 숫자인지 판별
 				if (Character.isDigit(chr)) {
 					score = 0;
@@ -43,8 +43,9 @@ public class DartGame {
 							break;
 						case 'T':
 //							System.out.println("T idx => " + idx);
-//							System.out.println("T score => " + score);
+							System.out.println("T score => " + score);
 							scoreArr[idx++] = (int) Math.pow(score, 3);
+							System.out.println("T score => " + score);
 							break;
 						case '*':
 							// ?? 왜 '*' 갯수만큼 -1 이 되어서 나올까

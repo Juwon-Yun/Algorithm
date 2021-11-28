@@ -26,15 +26,11 @@ public class FailureRate {
 
 		int[] result = solution(4, stages);
 
-		System.out.print("[");
-
-		for (int i : result) {
-			System.out.print(i + ", ");
-		}
-		System.out.println("]");
-
+		System.out.println(Arrays.toString(result));
 
 	}
+
+//	stage를 클리어하지 못한 사람은 다음스테이지에서 총 num - 1해줘야함
 	public static int [] solution(int N, int [] stages){
 		int [] answer = new int [N];
 
@@ -44,8 +40,9 @@ public class FailureRate {
 		int num = stages.length;
 
 		int temp = 0;
-		
-		
+
+		List<Integer> failRate = new ArrayList<>();
+
 		// i => stage Number
 		for (int i : stage) {
 			if(i == N + 1){
@@ -55,23 +52,24 @@ public class FailureRate {
 		}
 
 
-		List<Integer> failRate = new ArrayList<>();
-		
+
 		for(int i = 1; i < stage.length; i++){
 			temp = stage[i];
 
 			if( num == 0 ){
 				stage[i] = 0;
 			}else{
-				stage[i] = stage[i]/num;
+				stage[i] = stage[i] / num;
 				
 				num = num - temp;
 			}
 			failRate.add(stage[i]);
 		}
 
+		System.out.println(failRate.toString());
+
 		// 내림차순 정렬
-//		Collections.sort(failRate, Collections.reverseOrder());
+		Collections.sort(failRate, Collections.reverseOrder());
 
 		for(int i =0; i < failRate.size(); i++){
 			for(int j = 1; j < stage.length; j++){
