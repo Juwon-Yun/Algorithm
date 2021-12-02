@@ -5,6 +5,7 @@ import java.util.*;
 public class FailureRate {
 	public static void main(String[] args) {
 		/*
+
 		    실패율의 정의
 		     => 스테이지에 도달했으나 아직 클리어하지 못한 플레이어의 수 / 스테이지에 도달한 플레이어 수
 
