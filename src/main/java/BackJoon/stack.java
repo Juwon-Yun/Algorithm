@@ -11,7 +11,6 @@ public class stack {
 		Scanner sc = new Scanner(System.in);
 		StringBuilder builder = new StringBuilder();
 
-
 		int N = sc.nextInt();
 
 		stack = new int[N];
