@@ -7,7 +7,6 @@ public class zero_10773 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Stack<Integer> stack = new Stack<>();
-		StringBuilder builder = new StringBuilder();
 		int max_idx = sc.nextInt();
 		int sum = 0;
 
