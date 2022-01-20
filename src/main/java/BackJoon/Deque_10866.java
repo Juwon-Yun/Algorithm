@@ -17,26 +17,43 @@ public class Deque_10866 {
 
 		for(int i = 0; i <= N; i++){
 			String str = br.readLine();
+			int temp = 0;
 			switch (str){
 				case "push_front":
-
+					temp = Integer.parseInt( br.readLine() );
+					push_front( temp );
 					break;
 				case "push_back":
+					temp = Integer.parseInt( br.readLine() );
+					push_back( temp );
 					break;
 				case "pop_front":
+					temp = pop_front();
+					sb.append(temp).append("\n");
 					break;
 				case "pop_back":
+					temp = pop_back();
+					sb.append(temp).append("\n");
 					break;
 				case "size":
+					temp = size();
+					sb.append(temp).append("\n");
 					break;
 				case "empty":
+					temp = empty();
+					sb.append(temp).append("\n");
 					break;
 				case "front":
+					temp = front();
+					sb.append(temp).append("\n");
 					break;
 				case "back":
+					temp = back();
+					sb.append(temp).append("\n");
 					break;
 			}
 		}
+		System.out.println(sb);
 	}
 	public static void push_front(int item){
 		deque.addFirst(item);
