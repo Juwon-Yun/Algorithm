@@ -1,7 +1,6 @@
 package BackJoon;
 
 
-import java.util.Collections;
 import java.util.PriorityQueue;
 
 public class Priority_queue {
