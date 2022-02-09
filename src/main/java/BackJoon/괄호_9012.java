@@ -10,5 +10,14 @@ public class 괄호_9012 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int N = Integer.parseInt(br.readLine());
+
+        StringBuilder sb = new StringBuilder();
+        while (N-- > 0){
+            sb.append(solve(br.readLine())).append("\n");
+        }
     }
+    public static String solve(String str){
+        return "";
+    }
+
 }

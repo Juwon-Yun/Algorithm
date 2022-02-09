@@ -3,7 +3,7 @@ package BackJoon;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class LSC_9251 {
+public class LCS_9251 {
 
 
     // 첫 입력되는 문자열 배열 -> char 배열
