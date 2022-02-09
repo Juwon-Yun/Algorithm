@@ -35,13 +35,11 @@ public class 거리두기_확인하기 {
 	public static String [][] solution(String [][] places){
 		int [] answer = {};
 
-
 		String [][] temp = places;
-
-
 
 		for (int i = 0; i < places.length; i++){
 			for(int j = 0; j < places[i].length; j++){
+
 			}
 		}
 

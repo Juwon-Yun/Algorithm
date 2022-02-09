@@ -16,7 +16,6 @@ public class DFS_BFS_1260 {
 
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-
 		n = Integer.parseInt(st.nextToken());
 		m = Integer.parseInt(st.nextToken());
 		v = Integer.parseInt(st.nextToken());
