@@ -1,6 +1,12 @@
 package programmers;
 
+import java.util.Arrays;
+
 public class 거리두기_확인하기 {
+
+	public static final int ROW = 5;
+	public static final int COL = 5;
+
 	public static void main(String[] args) {
 		
 		// 대기실은 5개이며, 각 대기실은 5x5 크기입니다.
@@ -22,29 +28,92 @@ public class 거리두기_확인하기 {
 				, {"PXPXP", "XPXPX", "PXPXP", "XPXPX", "PXPXP"}
 		};
 
-		String [][] res = solution(temp);
+		int [] res = solution(temp);
 
-		for (String[] re : res) {
-			for (String s : re) {
-				System.out.println(s);
-			}
-		}
+		System.out.println(Arrays.toString(res));
 
 	}
 
-	public static String [][] solution(String [][] places){
-		int [] answer = {};
-
-		String [][] temp = places;
+	public static int [] solution(String [][] places){
+		int [] answer = new int[places.length];
 
 		for (int i = 0; i < places.length; i++){
-			for(int j = 0; j < places[i].length; j++){
+			String [] arr = places[i];
+			boolean flag = false;
+			for(int j = 0; j < ROW; j++){
+				for(int k = 0; k < COL; k++){
+					// 앉은자리
+					if(arr[j].charAt(k)=='P'){
+						if(isManhataan(j, k, arr)){
+							flag = true;
+							break;
+						}
+					}
+				}
+				if (flag){
+					// 맨하튼 거리에있으면
+					answer[i] = 0;
+					break;
+				}
+			}
+			if (!flag){
+				// 맨하튼 거리에 없으면
+				answer[i] = 1;
+			}
+		}
+		return answer;
+	}
 
+	public static boolean isManhataan(int x, int y,String [] arr){
+		// 상하좌우 확인하기 위한 mi, mj int 배열 선언
+		int [] mi = {0, 0, 1, -1};
+		int [] mj = {1, -1, 0, 0};
+
+		for(int i = 0; i < mi.length; i ++){
+			int NewI = x + mi[i];
+			int NewJ = y + mj[i];
+
+			if( NewI < 0 || NewI >= ROW || NewJ < 0 || NewJ >= COL)continue;
+			if(arr[NewI].charAt(NewJ) == 'P') return true;
+
+		}
+		// 상하좌우 맨하튼 거리 2 확인
+		int [] mi2 = {0, 0, 2, -2};
+		int [] mj2 = {2, -2, 0, 0};
+
+		for(int i = 0; i < mi2.length; i++){
+			int NewI = x + mi2[i];
+			int NewJ = y + mj2[i];
+
+
+			if( NewI < 0 || NewI >= ROW || NewJ < 0 || NewJ >= COL ) continue;
+
+			int tmpi = (x + NewI) / 2;
+			int tmpj = (y + NewJ) / 2;
+
+			if(arr[NewI].charAt(NewJ) == 'P'){
+				if(arr[tmpi].charAt(tmpj) != 'X'){
+					return true;
+				}
 			}
 		}
 
+		// 대각선확인을 위한 mi3 mj3 배열변수
+		int [] mi3 = {1, 1, -1, -1};
+		int [] mj3 = {1, -1, 1, -1};
 
+		for(int i = 0; i < mi3.length; i++){
+			int NewI = x + mi3[i];
+			int NewJ = y + mj3[i];
 
-		return temp;
+			if(NewI < 0 || NewI >= ROW || NewJ < 0 || NewJ >= COL) continue;
+			if(arr[NewI].charAt(NewJ) == 'P'){
+				if(!(arr[x].charAt(NewJ) == 'X' && arr[NewI].charAt(y) == 'X')){
+					return true;
+				}
+			}
+		}
+		return false;
 	}
+
 }
