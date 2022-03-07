@@ -58,14 +58,17 @@ public class 트리순회_1991 {
 		for (myNode node : list[start]) {
 			int leftNode = node.left;
 			int rightNode = node.right;
+
+			char dot = '.';
+			char root = 'A';
 			//V
 			sb.append((char)(start + 'A' - 1));
 			//L
-			if(leftNode != -18){
+			if(leftNode != (dot - root) + 1){
 				preOrderTraversal(leftNode);
 			}
 			//R
-			if( rightNode != -18){
+			if( rightNode != (dot - root) + 1){
 				preOrderTraversal(rightNode);
 			}
 		}
